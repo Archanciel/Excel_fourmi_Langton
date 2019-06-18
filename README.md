@@ -1,7 +1,7 @@
 # excel_Langton
 Implémentation dans Excel - VBA de l'algorithme de la fourmi de Langton  
 
-![](doc/Langton fourmi.gif)
+![](doc/Langton_fourmi.gif)
 
 ## Youtube video
 https://www.youtube.com/watch?v=qZRYGxF6D3w

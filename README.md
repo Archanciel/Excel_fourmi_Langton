@@ -1,6 +1,7 @@
 # excel_Langton
 Implémentation dans Excel - VBA de l'algorithme de la fourmi de Langton  
 
+## Rafraichir la page pour rejouer l'animation
 ![](doc/Excel.Langton.gif)
 
 ## Youtube video

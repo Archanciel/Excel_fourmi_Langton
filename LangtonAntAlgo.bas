@@ -1,4 +1,6 @@
 Attribute VB_Name = "LangtonAntAlgo"
+Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
 Sub Langton()
 Attribute Langton.VB_ProcData.VB_Invoke_Func = "l\n14"
     Application.ScreenUpdating = True 'on s'assure que chaque mouvement de la fourmi est affiché immédiatement
@@ -16,7 +18,7 @@ Attribute Langton.VB_ProcData.VB_Invoke_Func = "l\n14"
     Set Fourmi = Range("Z30") 'On part d'une cellule Excel un peu au hasard, la "Z30"
     DirectionFourmi = "Gauche" 'on part d'une des 4 directions possibles
     
-    For i = 1 To 20000 'Nombre de déplacements de la souris
+    For i = 1 To 12000 'Nombre de déplacements de la souris
         Fourmi.Value = Fourmi.Value + 1 'On écrit dans la cellule sur laquelle est la fourmi le nombre déjà écrit + 1 (pour savoir combien de fois la fourmi passe dans cette cellule)
     
         Select Case Fourmi.Interior.Color 'on regarde la couleur de la cellule sur laquelle est la fourmi
@@ -54,6 +56,18 @@ Attribute Langton.VB_ProcData.VB_Invoke_Func = "l\n14"
                     Set Fourmi = Fourmi.Offset(0, -1)
             End Select
         End Select
+    If i < 30 Then
+        Sleep 1000
+    ElseIf i < 100 Then
+        Sleep 500
+    ElseIf i < 350 Then
+        Sleep 100
+    ElseIf i < 1000 Then
+        Sleep 10
+    Else
+        Sleep 0
+    End If
+    Application.StatusBar = "Itération " & i
     Next i 'on relance la boucle jusqu'à atteindre le nombre d'itérations spécifié
 End Sub
 
